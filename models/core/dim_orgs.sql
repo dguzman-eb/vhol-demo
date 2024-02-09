@@ -18,7 +18,7 @@ WITH orgs AS (
 , user_count AS (
     SELECT
         org_id
-        , count(distinct user_id) AS num_users
+        , count(*) AS num_users
     FROM {{ ref('user_created') }}
     GROUP BY 1
 )
