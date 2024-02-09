@@ -2,7 +2,7 @@ WITH orgs AS (
 --prod
     SELECT
         org_id
-        , MIN(event_timestamp) AS created_at
+        , MAX(event_timestamp) AS created_at
     FROM {{ ref('signed_in') }}
     GROUP BY 1
 
