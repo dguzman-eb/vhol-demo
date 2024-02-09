@@ -5,21 +5,10 @@ vhol_demo:
     dev:
       type: snowflake
       account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
-      user: "{{ env_var('SNOWFLAKE_USER') | as_text }}"
-      password: "{{ env_var('SNOWFLAKE_PASSWORD') | as_text }}"
-      role: DEMO_ROLE
-      database: DEMO
-      warehouse: INTEGRATION
-      schema: "{{ env_var('SNOWFLAKE_SCHEMA') | as_text }}"
-      threads: 24
-
-    prod:
-      type: snowflake
-      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
-      user: "{{ env_var('SNOWFLAKE_USER') | as_text }}"
-      password: "{{ env_var('SNOWFLAKE_PASSWORD') | as_text }}"
-      role: DEMO_ROLE
-      database: DEMO
-      warehouse: INTEGRATION
-      schema: CORE
-      threads: 24
+      user: '{{ env_var("SNOWFLAKE_USER") }}'
+      private_key: "{{ env_var('SNOWFLAKE_PRIVATE_KEY') }}"
+      role: '{{ env_var("SNOWFLAKE_ROLE") }}'
+      database: '{{ env_var("SNOWFLAKE_TARGET_DATABASE") }}'
+      warehouse: '{{ env_var("SNOWFLAKE_WAREHOUSE")  }}'
+      schema: DW
+      threads: 10
